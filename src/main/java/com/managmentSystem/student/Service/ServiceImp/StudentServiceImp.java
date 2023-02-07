@@ -19,12 +19,7 @@ public class StudentServiceImp implements StudentService {
         this.studentRepository = studentRepository;
     }
 
-   public record  studentRecord (
-            String cen,
-            String firstName,
-            String lastName,
-            String email
-    ){}
+
 
     @Override
     public List<Student> getAllStudents() {
@@ -44,16 +39,7 @@ public class StudentServiceImp implements StudentService {
 
     }
 
-    @Override
-    public void editStudent(String id,studentRecord student) {
-        Student st =studentRepository.getReferenceById(id);
-        st.setCen(student.cen);
-        st.setFirstName(student.firstName);
-        st.setLastName(student.lastName);
-        st.setEmail(student.email);
-        studentRepository.save(st);
 
-    }
 
     @Override
     public void deleteStudent(String id) {
